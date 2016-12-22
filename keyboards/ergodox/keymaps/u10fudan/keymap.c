@@ -7,6 +7,10 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+#define KC_O_ATMARK KC_LBRC
+#define KC_O_LBRC KC_RBRC
+#define KC_O_RBRC KC_NUHS
+
 #define EPRM M(1) // Macro 1: Reset EEPROM
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -15,11 +19,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | ESC    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  | LT(1)|           | LT(1)|   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  | LT(1)|           | LT(1)|   Y  |   U  |   I  |   O  |   P  |   @    |
  * |--------+------+------+------+------+------| /BS  |           | /DL  |------+------+------+------+------+--------|
  * | Meh    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |; / L2|' / Cmd |
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| RShift |
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl|   \    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |Grv/L1|  '"  |AltShf| LGui |  MHEN|                                       | HENK | Down |   [  |   ]  | ~L1  |
  *   `----------------------------------'                                       `----------------------------------'
@@ -27,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |LSft/ |Ctrl/ | PgDn |       | PgUp |        |      |
- *                                 |BackSp| Space|------|       |------| Space  |Enter |
+ *                                 |BackSp|Delete|------|       |------| Enter  |Space |
  *                                 |ace   |      | Home |       | End  |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -42,16 +46,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LT(SYMB,KC_GRV),KC_QUOT,     LALT(KC_LSFT),  KC_LGUI,KC_MHEN,
                                               ALT_T(KC_APP),  KC_LGUI,
                                                               KC_PGDN,
-                                  S(KC_BSPC), CTL_T(KC_SPC),  KC_HOME,
+                              SFT_T(KC_BSPC), CTL_T(KC_SPC),  KC_HOME,
         // right hand
-             KC_RGHT,         KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_MINS,
-             LT(SYMB,KC_DEL), KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_BSLS,
-                              KC_H,   KC_J,   KC_K,   KC_L,   LT(MDIA, KC_SCLN),GUI_T(KC_QUOT),
-             MEH_T(KC_NO),    KC_N,   KC_M,   KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_RSFT,
-                                    KC_HENK,  KC_DOWN,KC_LBRC,KC_RBRC,          KC_FN1,
+             KC_RGHT,         KC_6,   KC_7,   KC_8,   KC_9,       KC_0,             KC_MINS,
+             LT(SYMB,KC_DEL), KC_Y,   KC_U,   KC_I,   KC_O,       KC_P,             KC_O_ATMARK,
+                              KC_H,   KC_J,   KC_K,   KC_L,       LT(MDIA, KC_SCLN),GUI_T(KC_QUOT),
+             MEH_T(KC_NO),    KC_N,   KC_M,   KC_COMM,KC_DOT,     CTL_T(KC_SLSH),   KC_BSLS,
+                                    KC_HENK,  KC_DOWN,KC_O_LBRC,  KC_O_RBRC,        KC_FN1,
              KC_LALT,  CTL_T(KC_ESC),
              KC_PGUP,
-             KC_END ,  KC_SPC  , KC_ENT
+             KC_END ,  KC_ENT  , KC_SPC
     ),
 /* Keymap 1: Function Layer
  *
@@ -86,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                KC_TRNS,
                                KC_TRNS,KC_TRNS,KC_TRNS,
        // right hand
-       KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
-       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                KC_LEFT, KC_DOWN,KC_UP,   KC_RIGHT,KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                         KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
