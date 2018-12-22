@@ -28,10 +28,10 @@ enum custom_keycodes {
 #define TSKMGR LCTL(LSFT(KC_ESC))
 
 // Custom key
-#define G(kc) kc | KC_LGUI
-#define S(kc) kc | KC_LSHIFT
-#define A(kc) kc | KC_LALT
-#define C(kc) kc | KC_RCTRL
+#define G_(kc) kc | KC_LGUI
+#define S_(kc) kc | KC_LSHIFT
+#define A_(kc) kc | KC_LALT
+#define C_(kc) kc | KC_RCTRL
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -117,9 +117,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_CONTROL] = LAYOUT( \
-   KC_ESC,   KC_F2, XXXXXXX, G(KC_R),  XXXXXXX,      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, \
-  XXXXXXX, XXXXXXX, XXXXXXX, S(KC_F12), KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
-  XXXXXXX, KC_BSPC, C(KC_C), C(KC_V),  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+   KC_ESC,   KC_F2, XXXXXXX, G_(KC_R),  XXXXXXX,      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, \
+  XXXXXXX, XXXXXXX, XXXXXXX, S_(KC_F12), KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
+  XXXXXXX, KC_BSPC, C_(KC_C), C_(KC_V),  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
                     XXXXXXX, XXXXXXX, KC_LCTRL,      XXXXXXX, XXXXXXX, XXXXXXX                    \
 ),
 
