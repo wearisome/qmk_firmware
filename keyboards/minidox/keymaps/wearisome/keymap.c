@@ -17,6 +17,10 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
+  GUI_PLUS_R,
+  SHIFT_PLUS_F12,
+  CTRL_PLUS_C,
+  CTRL_PLUS_V,
 };
 
 // Fillers to make layering more clear
@@ -26,12 +30,6 @@ enum custom_keycodes {
 // Defines for task manager and such
 #define CALTDEL LCTL(LALT(KC_DEL))
 #define TSKMGR LCTL(LSFT(KC_ESC))
-
-// Custom key
-#define G_(kc) kc | KC_LGUI
-#define S_(kc) kc | KC_LSHIFT
-#define A_(kc) kc | KC_LALT
-#define C_(kc) kc | KC_RCTRL
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -117,9 +115,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_CONTROL] = LAYOUT( \
-   KC_ESC,   KC_F2, XXXXXXX, G_(KC_R),  XXXXXXX,      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, \
-  XXXXXXX, XXXXXXX, XXXXXXX, S_(KC_F12), KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
-  XXXXXXX, KC_BSPC, C_(KC_C), C_(KC_V),  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+   KC_ESC,   KC_F2, XXXXXXX, GUI_PLUS_R,  XXXXXXX,      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, \
+  XXXXXXX, XXXXXXX, XXXXXXX, SHIFT_PLUS_F12, KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
+  XXXXXXX, KC_BSPC, CTRL_PLUS_C, CTRL_PLUS_V,  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
                     XXXXXXX, XXXXXXX, KC_LCTRL,      XXXXXXX, XXXXXXX, XXXXXXX                    \
 ),
 
@@ -188,6 +186,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(_ADJUST);
       } else {
         layer_off(_ADJUST);
+      }
+      return false;
+      break;
+    // custom macros
+    case GUI_PLUS_R:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI("r"));
+      } else {
+      }
+      return false;
+      break;
+    case SHIFT_PLUS_F12:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LSFT(X_F12));
+      } else {
+      }
+      return false;
+      break;
+    case CTRL_PLUS_C:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("c"));
+      } else {
+      }
+      return false;
+      break;
+    case CTRL_PLUS_V:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("v"));
+      } else {
       }
       return false;
       break;
