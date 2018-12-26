@@ -104,21 +104,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * |  Esc |  F2  |      | Win+R|      |           | HOME | PGDN | PGUP | END  |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |S(F12)| F12  |           | LEFT | DOWN |  UP  | RIGHT| TRNC |
+ * |  Tab |      |      |S(F12)| F12  |           | LEFT | DOWN |  UP  | RIGHT| TRNC |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |BckSpc|Ctrl+C|Ctrl+V|      |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |      |      |      |    |      |      |      |
+ *                  |      | Alt  |      |    |      |      |      |
  *                  `-------------| CTRL |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [_CONTROL] = LAYOUT( \
    KC_ESC,   KC_F2, XXXXXXX, GUI_PLUS_R,  XXXXXXX,      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, \
-  XXXXXXX, XXXXXXX, XXXXXXX, SHIFT_PLUS_F12, KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
+   KC_TAB, XXXXXXX, XXXXXXX, SHIFT_PLUS_F12, KC_F12,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
   XXXXXXX, KC_BSPC, CTRL_PLUS_C, CTRL_PLUS_V,  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-                    XXXXXXX, XXXXXXX, KC_LCTRL,      XXXXXXX, XXXXXXX, XXXXXXX                    \
+                    XXXXXXX, KC_LALT, KC_LCTRL,      XXXXXXX, XXXXXXX, XXXXXXX                    \
 ),
 
 
