@@ -54,8 +54,8 @@ enum macro_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
 #define KC_ALTDEL ALT_T(KC_DEL)
-#define KC_CSPC MT(KC_LCTL, KC_SPC)
-#define KC_SENT MT(KC_LSFT, KC_ENT)
+#define KC_CSPC LCTL_T(KC_SPC)
+#define KC_SENT LSFT_T(KC_ENT)
 #define KC_S1 LSFT(KC_1)
 #define KC_S2 LSFT(KC_2)
 #define KC_S3 LSFT(KC_3)
@@ -66,6 +66,7 @@ enum macro_keycodes {
 #define KC_S8 LSFT(KC_8)
 #define KC_S9 LSFT(KC_9)
 #define KC_S0 LSFT(KC_0)
+#define zzzzzzzzqa
 #define KC_SMINS LSFT(KC_MINS)
 #define KC_VSCLN LT(_VIM, KC_SCLN)
 
@@ -96,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        EQL,    S1,    S2,    S3,    S4,    S5,                     S6,    S7,    S8,    S9,    S0, SMINS,\
+       JYEN,    S1,    S2,    S3,    S4,    S5,                     S6,    S7,    S8,    S9,    S0, SMINS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
         TAB, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   MINS,   EQL,  LCBR,  RCBR,  PIPE,   GRV,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
